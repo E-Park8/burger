@@ -1,0 +1,54 @@
+ <div class="jumbotron">
+    <div id ="banner" class="container">
+      <h1 class="display-2 title">Burger</h1>
+    </div>
+    </div>
+
+
+
+<form>
+  <div class="form-group">
+    <label for="addBurger">Add Burger!</label>
+    <input type="text" class="form-control" id="burger">
+  </div>
+  <button id="add" type="submit" class="btn btn-primary">Add!</button>
+</form>
+
+
+
+
+
+  <div class="row">
+  
+    <div class="col-lg-6">
+      <ul id="notDevoured" class='list-group list-group-flush'>
+        <h2>Not Devoured:</h2>
+
+        {{#each burgers}}
+
+        {{#unless this.devoured}}
+        <li id="{{ this.id }}" data-name="{{ this.burger_name }}" class="list-group-item list-group-item-info">
+         {{ this.burger_name }}
+          <button class="btn btn-success devour">Devour It!</button>
+        </li>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+
+
+    <div class="col-lg-6">
+      <ul id='devoured' class='list-group'>
+        <h2>Devoured:</h2>
+
+        {{#each burgers}}
+  
+        {{#if this.devoured}}
+        <li id="{{ this.id }}" class="list-group-item list-group-item-danger">
+        {{ this.burger_name }}
+        </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
